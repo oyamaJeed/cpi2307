@@ -1,0 +1,37 @@
+# TARGET NAME
+#TARGET := ex02
+
+# OBJECT FILES NAME
+OBJS := $(TARGET).o
+
+# SORCE FILES NAME
+SRCS := $(OBJS:%.o=%.c)
+
+# COMPILER TYPE
+CC := gcc
+
+# CONPILER OPTION
+CFLAGS := -g -Wall -Wextra -DDEEBUG=1
+
+# DYNAMIC LIBRARY
+# LDRAGS := -lptherd
+
+# MAKE ALL(PHONY TARGET)
+.PHONY:all
+all: &(TARGET)
+
+# LINK OBJECTS
+$(TARGET):$(OBJS)
+	$(CC) $(CFLAGS) -o $@ $(OBJS) $(LDFLAGS)
+
+# COMPILE SOURCES
+./%.o: ./%.c
+	$(CC) $(CFLAGS) -c $<
+
+# UPDATE HEADER FILE
+# $(OBJS): *.h
+
+# CLEAN FILES(PHONY TARGET)
+.PHONY: clean
+clean:
+	rm -f *.o *~ $(TARGET)
