@@ -1,0 +1,16 @@
+TARGET := display
+SRC := $(TARGET).c
+OBJ := $(TARGET).o
+LSO := libdlink.so
+
+CFLAGS := -g -Wall
+LDFLAGS := -lpthread
+Shared := -shared -fPIC
+CC:= gcc $(CFLAGS)
+
+all : $(TARGET)
+
+$(TARGET): $(OBJ)
+	$(CC) $(Shared) $(SRC) -o $(LSO)
+clean:
+	rm -f $(TARGET) $(OBJ) $(LSO)
