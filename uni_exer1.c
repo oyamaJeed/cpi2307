@@ -17,32 +17,32 @@ size_t strlen(const char * str){
 
 int main(int argv, char *argc[])
 {
-	ST_EXER	st_val 		= {'C','D',"Good evening!"};
-	ST_EXER *st_val_p 	= &st_val;
+	UNI_EXER	st_val 	= {"CDGood evening!"};
+	UNI_EXER *st_val_p 	= &st_val;
 
 	printf("*** Init ****\n");
-	printf("struct from=%c\n", st_val_p->from);
-	printf("struct to=%c\n", st_val_p->to);
-	printf("struct msg=%s\n",st_val_p->msg);
+	printf("struct from=%c\n", st_val_p->exer.from);
+	printf("struct to=%c\n", st_val_p->exer.to);
+	printf("struct msg=%s\n",st_val_p->exer.msg);
 	
-	st_val_p->from	='E';
-	st_val_p->to		='F';
+	st_val_p->exer.from	='E';
+	st_val_p->exer.to	='F';
 	
 	char newmsg[]="This is an apple!";
 	
-	size_t str_l=strlen(st_val.msg);
+	size_t str_l=strlen(st_val.exer.msg);
 	if(str_l<strlen(newmsg))
 	{
 		str_l=strlen(newmsg);
 	}
 	for(int i=0;i<str_l;i++){
-		st_val_p->msg[i]=newmsg[i];
+		st_val_p->exer.msg[i]=newmsg[i];
 	}
 	
 	printf("\n*** Modify ****\n");
-	printf("struct from=%c\n", st_val.from);
-	printf("struct to=%c\n", st_val.to);
-	printf("struct msg=%s\n",st_val.msg);
+	printf("struct from=%c\n", st_val.exer.from);
+	printf("struct to=%c\n", st_val.exer.to);
+	printf("struct msg=%s\n",st_val.exer.msg);
 	
 
 	return 0;
